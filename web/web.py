@@ -64,5 +64,5 @@ def register():
 def dashboard():
     return redirect('http://localhost:5600/?password=654321')
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
