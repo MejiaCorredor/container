@@ -40,5 +40,5 @@ app.layout = html.Div([
     dcc.Graph(figure=fig),
 ])
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     server.run(host='0.0.0.0', port=5600)
