@@ -20,7 +20,7 @@ fig = go.Figure(go.Densitymapbox(lat=latr, lon=lonr, z=zr, radius=20, opacity=0.
 fig.update_layout(mapbox_style="stamen-terrain", mapbox_center_lon=-75.589, mapbox_center_lat=6.2429)
 fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
-server = Flask(_name_)
+server = Flask(__name__)
 
 VALID_PASSWORD = "654321"
 
@@ -33,12 +33,12 @@ def index():
         return redirect("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cristiano-ronaldo-of-portugal-looks-dejected-following-news-photo-1624346993.jpg?crop=1.00xw:1.00xh;0,0&resize=640:*")
 
 
-app = dash.Dash(_name_, server=server, url_base_pathname='/dashboard/')
+app = dash.Dash(__name__, server=server, url_base_pathname='/dashboard/')
 
 app.layout = html.Div([
     html.H1("Mapa con niveles"),
     dcc.Graph(figure=fig),
 ])
 
-if _name_ == '_main_':
+if __name__ == '_main_':
     server.run(host='0.0.0.0', port=5600)

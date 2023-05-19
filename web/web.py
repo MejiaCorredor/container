@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mysqldb import MySQL
 
-app = Flask(_name_, template_folder='templates')
+app = Flask(__name__, template_folder='templates')
 
 # Configuración de la base de datos
 app.config['MYSQL_HOST'] = 'container2'
@@ -64,5 +64,5 @@ def register():
 def dashboard():
     return redirect('http://localhost:5600/?password=654321')
 
-if _name_ == '_main_':
+if __name__ == '_main_':
     app.run(host='0.0.0.0', port=80)
